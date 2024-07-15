@@ -5,17 +5,18 @@
 
 The frontend provides an interactive interface for users to draw together in real time. It handles user authentication, drawing interactions, and communication with the backend and WebSocket server.
 
-## Screenshots 
-
-
-| Screenshot | Description |
-| --- | --- |
-| ![Landing Page](./src/assets/screenshots/landing.png) | Welcome to Drawn Together! |
-| ![Register](./src/assets/screenshots/register.png) | Register for a new account |
-| ![Waiting Room](./src/assets/screenshots/waiting.png) | Invite and be invited by other players! |
-| ![Rejection](./src/assets/screenshots/rejection.png) | .. Well this is awkward |
-| ![Game](./src/assets/screenshots/game.png) | Draw together in real time! |
-| ![Bailed](./src/assets/screenshots/bailed.png) | .. Hang on.. Where'd they go? |
+## Welcome to Drawn Together!
+![Landing Page](./src/assets/screenshots/landing.png)
+## Join in on the fun! Register as a new user!
+![Register](./src/assets/screenshots/register.png)
+## Join in with friends!
+![Waiting Room](./src/assets/screenshots/waiting.png)
+## ... Well, this is awkward.
+![Rejection](./src/assets/screenshots/rejection.png)
+## Draw together in real time.
+![Game](./src/assets/screenshots/game.png)
+## .... Where'd they go?
+![Bailed](./src/assets/screenshots/bailed.png)
 
 ## Technologies Used
 
