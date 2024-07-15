@@ -209,7 +209,7 @@ const LandingPage = () => {
             )}
             <button
               type="submit"
-              className="bg-blue-500 text-white p-2 ml-20 mt-2 rounded-md font-sketch text-opacity-85 text-2xl w-1/2 hover:bg-blue-600 transform transition duration-700 hover:scale-105"
+              className="bg-blue-500 text-white p-2 ml-20 mt-2 rounded-md font-wild text-opacity-85 text-4xl tracking-wider w-1/2 hover:bg-blue-600 transform transition duration-700 hover:scale-105"
             >
               {isRegistering ? "Register" : "Login"}
             </button>

@@ -245,7 +245,7 @@ const WaitingRoom: React.FC = () => {
         </div>
       </div>
       <button
-        className="bg-red-500 w-1/6 font-sketch text-5xl p-3 mb-10 rounded-md hover:bg-red-600 mt-5 transform transition duration-700 hover:scale-110"
+        className="bg-red-500 w-1/6 font-wild text-5xl p-1 pb-3 mb-10 rounded-md hover:bg-red-600 mt-5 transform transition duration-700 hover:scale-110"
         onClick={handleLogout}
       >
         Logout
