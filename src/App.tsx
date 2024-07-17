@@ -11,6 +11,7 @@ import "./index.css";
 const App: React.FC = () => {
   return (
     <AuthProvider>
+      {/* <Router basename="/DrawnTogether"> */}
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />

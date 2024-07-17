@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { authService } from "../../services/authService";
-import { registerUser } from "../../services/register";
+import {
+  registerUser,
+  checkUsername,
+  checkEmail,
+} from "../../services/register";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm, SubmitHandler } from "react-hook-form";
+import pencil from "../../assets/pencil.png";
 
 type FormData = {
   firstName: string;
@@ -21,7 +26,47 @@ const LandingPage = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setError,
+    clearErrors,
+    watch,
+  } = useForm<FormData>();
+
+  const watchedUsername = watch("username");
+  const watchedEmail = watch("email");
+
+  useEffect(() => {
+    if (isRegistering && watchedUsername) {
+      checkUsername(watchedUsername).then((isTaken) => {
+        if (isTaken) {
+          setError("username", {
+            type: "manual",
+            message: "Username is already taken",
+          });
+        } else {
+          clearErrors("username");
+        }
+      });
+    }
+  }, [watchedUsername, isRegistering, setError, clearErrors]);
+
+  useEffect(() => {
+    if (isRegistering && watchedEmail) {
+      checkEmail(watchedEmail).then((isTaken) => {
+        if (isTaken) {
+          setError("email", {
+            type: "manual",
+            message: "Email is already registered",
+          });
+        } else {
+          clearErrors("email");
+        }
+      });
+    }
+  }, [watchedEmail, isRegistering, setError, clearErrors]);
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     if (isRegistering) {
@@ -38,19 +83,21 @@ const LandingPage = () => {
           email: data.email,
         };
         await registerUser(registrationData);
-        toast.success("Registration successful! Please log in.");
+        toast.success("Registration successful! Login and get drawing!");
         setIsRegistering(false);
-        reset();
-      } catch (error) {
-        toast.error("Registration failed");
+      } catch (error: any) {
+        toast.error(error.message);
       }
     } else {
       try {
-        const authResponse = await authService.login({ username: data.username, password: data.password });
+        const authResponse = await authService.login({
+          username: data.username,
+          password: data.password,
+        });
         login(authResponse.jwt);
         navigate("/waitingroom");
-      } catch (error) {
-        toast.error("Login failed");
+      } catch (error: any) {
+        toast.error(error.message);
       }
     }
   };
@@ -62,7 +109,7 @@ const LandingPage = () => {
           <h1 className="text-[117px] font-bold text-center -mt-4 ml-2 font-sketch">
             Drawn Together
           </h1>
-          <img src="pencil.png" alt="logo" className="w-8/12 ml-10 -mt-10" />
+          <img src={pencil} alt="logo" className="w-8/12 ml-10 -mt-10" />
         </div>
         <div className="w-1/3 mr-2 flex flex-col justify-center">
           <form

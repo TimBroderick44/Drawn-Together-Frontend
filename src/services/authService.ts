@@ -1,14 +1,17 @@
 import axios from 'axios';
-import { AuthResponse, AuthRequest } from "../types/typing";
 
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://localhost:8080/auth/authenticate';
 
-export const login = async (authRequest: AuthRequest): Promise<AuthResponse> => {
+export const login = async (credentials: { username: string; password: string }) => {
   try {
-    const response = await axios.post<AuthResponse>(`${API_URL}/auth/authenticate`, authRequest);
+    const response = await axios.post(API_URL, credentials);
     return response.data;
   } catch (error) {
-    throw new Error('Failed to login. Please check your credentials.');
+    if (axios.isAxiosError(error) && error.response) {
+      throw new Error(error.response.data);
+    } else {
+      throw new Error("Login failed");
+    }
   }
 };
 
