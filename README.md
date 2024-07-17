@@ -5,39 +5,18 @@
 
 The frontend provides an interactive interface for users to draw together in real time. It handles user authentication, drawing interactions, and communication with the backend and WebSocket server.
 
-## Screenshots 
-
-<div style="text-align: center;">
-  <figure>
-    <img src="./src/assets/screenshots/landing.png" alt="Landing Page" style="width: 80%;">
-    <figcaption><p>Welcome to Drawn Together!</p></figcaption>
-  </figure>
-
-  <figure>
-    <img src="./src/assets/screenshots/register.png" alt="Register" style="width: 80%;">
-    <figcaption>Register for a new account</figcaption>
-  </figure>
-
-  <figure>
-    <img src="./src/assets/screenshots/waiting.png" alt="Waiting Room" style="width: 80%;">
-    <figcaption>Invite and be invited by other players!</figcaption>
-  </figure>
-
-  <figure>
-    <img src="./src/assets/screenshots/rejection.png" alt="Rejection" style="width: 80%;">
-    <figcaption>.. Well this is awkward</figcaption>
-  </figure>
-
-  <figure>
-    <img src="./src/assets/screenshots/game.png" alt="Game" style="width: 80%;">
-    <figcaption>Draw together in real time!</figcaption>
-  </figure>
-
-  <figure>
-    <img src="./src/assets/screenshots/bailed.png" alt="Bailed" style="width: 80%;">
-    <figcaption>.. Hang on.. Where'd they go?</figcaption>
-  </figure>
-</div>
+## Welcome to Drawn Together!
+![Landing Page](./src/assets/screenshots/landing.png)
+## Join in on the fun! Register as a new user!
+![Register](./src/assets/screenshots/register.png)
+## Join in with friends!
+![Waiting Room](./src/assets/screenshots/waiting.png)
+## ... Well, this is awkward.
+![Rejection](./src/assets/screenshots/rejection.png)
+## Draw together in real time.
+![Game](./src/assets/screenshots/game.png)
+## .... Where'd they go?
+![Bailed](./src/assets/screenshots/bailed.png)
 
 ## Technologies Used
 
